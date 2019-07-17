@@ -13,7 +13,7 @@ describe('Jest deafult test', () => {
   });
 });
 
-describe('Enzyme deafult test', () => {
+describe('Enzyme default test', () => {
   it('render snapshot', () => {
     const snapShot = shallow(<App />);
     expect(snapShot).toMatchSnapshot();
