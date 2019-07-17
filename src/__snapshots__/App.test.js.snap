@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Enzyme deafult test render snapshot 1`] = `
+exports[`Enzyme default test render snapshot 1`] = `
 <div
   className="App"
 >
