@@ -9,13 +9,18 @@ export default class AddTask extends Component {
         this.setState({ taskValue: event.target.value });
     }
 
-    render() {
+    handlerSaveTask = () => {
         const { taskValue } = this.state;
         const { saveTask } = this.props;
+        saveTask(taskValue);
+    }
+
+    render() {
+        const { taskValue } = this.state;
         return (
             <div>
                 <input type="text" value={taskValue} onChange={(event) => this.handlerChange(event)}/>
-                <button onClick={() => saveTask(taskValue)}>ADD</button>
+                <button onClick={this.handlerSaveTask}>ADD</button>
             </div>
         )
     }
