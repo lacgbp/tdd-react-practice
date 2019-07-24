@@ -10,9 +10,9 @@ export default class TaskFrm extends Component {
     }
 
     handlerAddTask = () => {
-        const { addTask } = this.props;
+        const { onAdd } = this.props;
         const { taskValue } = this.state;
-        addTask(taskValue);
+        onAdd(taskValue);
     }
 
     render() {
