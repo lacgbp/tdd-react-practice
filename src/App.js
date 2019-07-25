@@ -1,9 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ToDo from './components/ToDo';
+import store from './redux/store';
 
 function App() {
   return (
-    <ToDo />
+    <Provider store={store}>
+      <ToDo />
+    </Provider>
   );
 }
 
