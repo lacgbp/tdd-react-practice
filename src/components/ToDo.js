@@ -25,9 +25,9 @@ export default class ToDo extends Component {
         return (
             <div>
                 <TaskFrm 
-                    onAdd={(task) => this.addNewTask(task)}
+                    onAdd={this.addNewTask}
                 />
-                { tasks.map( (task, index) => <Task taskName={task} taskId={index} key={`${index}-${task}`} onDelete={(pos) => this.deleteTask(pos)} />) }
+                { tasks.map( (task, index) => <Task taskName={task} taskId={index} key={`${index}-${task}`} onDelete={this.deleteTask} />) }
             </div>
         )
     }
