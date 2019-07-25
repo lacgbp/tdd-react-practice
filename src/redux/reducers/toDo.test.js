@@ -1,7 +1,6 @@
-import configureMockStore from 'redux-mock-store';
 import toDoReducer from './toDo';
 
-describe('Testing To Do Reducer', () => {
+describe('Testing ToDo Reducer', () => {
     it('should has an empty array on initial state', () => {
         const initialState = {
             tasks: [],
