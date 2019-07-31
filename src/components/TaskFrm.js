@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTask } from '../redux/actions/toDo';
 
-export default class TaskFrm extends Component {
+export class TaskFrm extends Component {
     state = {
         taskValue: '',
     };
@@ -10,9 +12,9 @@ export default class TaskFrm extends Component {
     }
 
     handlerAddTask = () => {
-        const { onAdd } = this.props;
+        const { addTask } = this.props;
         const { taskValue } = this.state;
-        onAdd(taskValue);
+        addTask(taskValue);
     }
 
     render() {
@@ -30,3 +32,9 @@ export default class TaskFrm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = {
+    addTask,
+} 
+
+export default connect(null, mapDispatchToProps)(TaskFrm);

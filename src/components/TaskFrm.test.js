@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TaskFrm from './TaskFrm';
+import { TaskFrm } from './TaskFrm';
 
 describe('Task Frm tests', () => {
     it('should has label with task name text', () => {
@@ -18,7 +18,7 @@ describe('Task Frm tests', () => {
     });
     it('should has button and this execute add function', () => {
         const addTask = jest.fn();
-        const wrapper = shallow(<TaskFrm onAdd={addTask} />);
+        const wrapper = shallow(<TaskFrm addTask={addTask} />);
         const buttons = wrapper.find('button');
         expect(buttons.length).toBe(1);
         const button = buttons.first();
@@ -48,7 +48,7 @@ describe('Task Frm tests', () => {
     it('should execute add function with task value', () => {
         const value = 'AAAAA';
         const addTask = jest.fn();
-        const wrapper = shallow(<TaskFrm onAdd={addTask} />);
+        const wrapper = shallow(<TaskFrm addTask={addTask} />);
         const input = wrapper.find('input').first();
         input.simulate('change', { target: { value } });
         const button = wrapper.find('button').first();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Task from './Task';
+import { Task } from './Task';
 
 describe('Test task component', () => {
     test('should has task name', () => {
@@ -18,7 +18,7 @@ describe('Test task component', () => {
         const wrapper =  shallow(<Task
             taskName={taskName}
             taskId={taskId}
-            onDelete={onDelete}
+            deleteTask={onDelete}
         />);
         const buttons = wrapper.find('button');
         expect(buttons.length).toBe(1);

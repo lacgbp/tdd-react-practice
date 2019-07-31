@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deleteTask } from '../redux/actions/toDo';
 
-export default class Task extends Component {
+export class Task extends Component {
     render() {
-        const { taskName, onDelete, taskId } = this.props;
+        const { taskName, deleteTask, taskId } = this.props;
         return (
             <div>
                 <span>{taskName}</span>
-                <button onClick={() => onDelete(taskId)}>X</button>
+                <button onClick={() => deleteTask(taskId)}>X</button>
             </div>
         );
     }
 }
+
+const mapDispatchToProps = {
+    deleteTask,
+};
+
+export default connect(null, mapDispatchToProps)(Task);

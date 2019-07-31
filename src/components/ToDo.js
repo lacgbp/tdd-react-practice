@@ -1,34 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import TaskFrm from './TaskFrm';
 import Task from './Task';
 
-export default class ToDo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tasks : [],
-        };
-    }
-
-    addNewTask = (task) => {
-        const { tasks } =  this.state;
-        this.setState({ tasks: [ ...tasks, task ] });
-    }
-
-    deleteTask = (pos) => {
-        const { tasks } =  this.state;
-        this.setState({ tasks: [ ...tasks.slice(0, pos), ...tasks.slice(pos + 1)] });
-    }
-
+export class ToDo extends Component {
     render() {
-        const { tasks } = this.state;
+        const { tasks } = this.props;
         return (
             <div>
-                <TaskFrm 
-                    onAdd={this.addNewTask}
-                />
-                { tasks.map( (task, index) => <Task taskName={task} taskId={index} key={`${index}-${task}`} onDelete={this.deleteTask} />) }
+                <TaskFrm />
+                { tasks.map( (task, index) => <Task taskName={task} taskId={index} key={`${index}-${task}`} />) }
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.toDoReducer.tasks,
+    }
+}
+
+
+export default connect(mapStateToProps)(ToDo);

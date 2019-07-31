@@ -12,6 +12,6 @@ exports[`Enzyme default test render snapshot 1`] = `
     }
   }
 >
-  <ToDo />
+  <Connect(ToDo) />
 </Provider>
 `;
