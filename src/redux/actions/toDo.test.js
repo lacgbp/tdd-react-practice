@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/53839786/testing-redux-async-method-with-moxios
 import moxios from 'moxios';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
